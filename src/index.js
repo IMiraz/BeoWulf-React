@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import decode from 'jwt-decode'
 import {BrowserRouter, Route} from 'react-router-dom';
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -17,7 +18,12 @@ composeWithDevTools(applyMiddleware(thunk))
 );
 
 if(localStorage.booksJWT) {
-const user = {token:localStorage.booksJWT};
+const payload = decode(localStorage.booksJWT);
+const user = {
+    token:localStorage.booksJWT,
+    email:payload.email,
+    confirmed:payload.confirmed
+};
 store.dispatch(userLoggedIn(user));
 
 }
