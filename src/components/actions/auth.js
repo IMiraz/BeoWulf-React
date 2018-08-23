@@ -31,3 +31,7 @@ export const logout = () => (dispatch) =>
     localStorage.booksJWT = user.token;
     dispatch(userLoggedIn(user));
   })
+
+  export const resetPasswordRequest= ({ email }) => () => {
+api.user.resetPasswordRequest(email)
+  }
