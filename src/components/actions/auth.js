@@ -32,6 +32,5 @@ export const logout = () => (dispatch) =>
     dispatch(userLoggedIn(user));
   })
 
-  export const resetPasswordRequest= ({ email }) => () => {
+  export const resetPasswordRequest= ({ email }) => () =>
 api.user.resetPasswordRequest(email)
-  }
