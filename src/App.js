@@ -7,6 +7,8 @@ import DashboardPage from './components/pages/dashboardPage';
 import SignupPage from './components/pages/signupPage';
 import ConfirmationPage from "./components/pages/ConfirmationPage";
 import ForgotPasswordPage from "./components/pages/forgotpasswordPage";
+import ResetPasswordPage from "./components/pages/resetPasswordPage";
+
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 
@@ -18,6 +20,7 @@ const App = ({location}) =>
 <UserRoute location={location}  path ="/dashborad" exact component ={DashboardPage}/>
 <GuestRoute location={location}  path ="/login" exact component ={LoginPage}/>
 <GuestRoute location={location}  path ="/forgot_password" exact component ={ForgotPasswordPage}/>
+<GuestRoute location={location}  path ="/reset_password/:token" exact component ={ResetPasswordPage}/>
 <GuestRoute location={location}  path ="/signup" exact component ={SignupPage}/>
 </div>
 
