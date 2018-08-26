@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
+import { Segment } from 'semantic-ui-react';
+import SearchBookForm from '../forms/SearchBookForm'
 
  class NewBooksPage extends Component {
+     state = {
+  book:null
+     }
   render() {
     return (
-      <div>
- <h1>hi this is new books page</h1>
-      </div>
+   <Segment>
+<h1>Add New Book Your Collection</h1>
+<SearchBookForm/>
+
+   </Segment>
     )
   }
 }
