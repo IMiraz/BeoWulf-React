@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, Icon } from 'semantic-ui-react';
+import {Link} from 'react-router-dom'
 
 export default function AddBooksCta ()  {
   return (
@@ -9,7 +10,7 @@ export default function AddBooksCta ()  {
 <CardHeader>
 Add New Books
 </CardHeader>
-<Icon name="plus circle" size="massive"/>
+<Link to="books/new"><Icon name="plus circle" size="massive"/></Link>
 </CardContent>
 
     </Card>

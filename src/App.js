@@ -12,7 +12,8 @@ import {connect} from 'react-redux';
 
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
-import TopNavigation from './components/navigation/Topnavigation'
+import TopNavigation from './components/navigation/Topnavigation';
+import NewBooksPage from './components/pages/NewBooksPage'
 
 
 const App = ({location, isAuthenticated}) =>
@@ -21,6 +22,7 @@ const App = ({location, isAuthenticated}) =>
 <Route location={location}  path="/" exact component={HomePage}/>
  <Route location={location} path="/confirmation/:token" exact component={ConfirmationPage}/>
 <UserRoute location={location}  path ="/dashborad" exact component ={DashboardPage}/>
+<UserRoute location={location}  path ="/books/new" exact component ={NewBooksPage}/>
 <GuestRoute location={location}  path ="/login" exact component ={LoginPage}/>
 <GuestRoute location={location}  path ="/forgot_password" exact component ={ForgotPasswordPage}/>
 <GuestRoute location={location}  path ="/reset_password/:token" exact component ={ResetPasswordPage}/>
