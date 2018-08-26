@@ -11,10 +11,12 @@ import ResetPasswordPage from "./components/pages/resetPasswordPage";
 
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
+import TopNavigation from './components/navigation/Topnavigation'
 
 
 const App = ({location}) =>
 <div className="ui container">
+<TopNavigation/>
 <Route location={location}  path="/" exact component={HomePage}/>
  <Route location={location} path="/confirmation/:token" exact component={ConfirmationPage}/>
 <UserRoute location={location}  path ="/dashborad" exact component ={DashboardPage}/>
