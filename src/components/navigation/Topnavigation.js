@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import  gravatarURL from 'gravatar-url'
 import propTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {logout} from '../actions/auth'
+import * as actions from '../actions/auth'
 
 const TopNavigation = ({ user, logout }) => {
   return (
@@ -14,7 +14,7 @@ const TopNavigation = ({ user, logout }) => {
     <Dropdown trigger={<Image avatar src={gravatarURL(user.email)}/>}>
     <Dropdown.Menu>
 
-       <Dropdown.Item onClick ={ () => logout}>
+       <Dropdown.Item onClick ={ () => logout()}>
  Logout
  </Dropdown.Item>
     </Dropdown.Menu>
@@ -44,4 +44,4 @@ function mapStateToProps(state) {
 
 }
 
-export default connect(mapStateToProps,{logout}) (TopNavigation);
+export default connect(mapStateToProps,{logout:actions.logout}) (TopNavigation);
