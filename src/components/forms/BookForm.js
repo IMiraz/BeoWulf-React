@@ -72,7 +72,7 @@ pages:this.props.book.pages
         <Segment>
       <Form onSubmit={this.onSubmit} loading={loading}>
 
-       <Grid columns={2} >
+       <Grid columns={2} stackable >
        <GridRow>
 <GridColumn>
 <Form.Field error={!!errors.title}>
