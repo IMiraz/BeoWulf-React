@@ -9,7 +9,7 @@ import * as actions from '../actions/auth'
 const TopNavigation = ({ user, logout }) => {
   return (
     <Menu secondary pointing>
-    <Menu.Item as={Link} to="/dashboard">dashboard</Menu.Item>
+    <Menu.Item as={Link} to="/dashborad">dashboard</Menu.Item>
     <Menu.Menu position="right">
     <Dropdown trigger={<Image avatar src={gravatarURL(user.email)}/>}>
     <Dropdown.Menu>

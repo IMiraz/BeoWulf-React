@@ -2,6 +2,7 @@ import React from "react";
 import propTypes from "prop-types";
 import { Form, Button, Segment, Grid, GridRow, GridColumn,Image } from "semantic-ui-react";
 import InlineError from "../message/InlineError";
+import {Link} from 'react-router-dom'
 
 class BookForm extends React.Component {
   state = {
@@ -14,6 +15,7 @@ pages:this.props.book.pages
     },
     covers:this.props.book.covers,
     loading: false,
+    index:0,
     errors: {}
   };
 
@@ -26,7 +28,8 @@ pages:this.props.book.pages
     cover:props.book.covers[0],
     pages:props.book.pages
  },
- covers:props.book.covers
+ covers:props.book.covers,
+
       })
   }
 
@@ -64,6 +67,12 @@ pages:this.props.book.pages
     if (!data.pages) errors.pages = "Can't be blank";
     return errors;
   };
+
+  changeCover = () => {
+const {index, covers} = this.state;
+const newIndex = index + 1 >=covers.length? 0 : index +1;
+this.setState({ index: newIndex, data:{...this.state.data, cover:covers[newIndex]}})
+  }
 
   render() {
     const { errors, data, loading } = this.state;
@@ -116,6 +125,11 @@ pages:this.props.book.pages
 </GridColumn>
 <GridColumn>
 <Image size="small" src={data.cover}/>
+{this.state.covers.length>1 && <a role="button"
+tabIndex={0}
+onClick={this.changeCover} as={Link} >Another Cover
+</a>
+ }
 </GridColumn>
        </GridRow>
        <GridRow>
