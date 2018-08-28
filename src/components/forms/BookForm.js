@@ -2,7 +2,6 @@ import React from "react";
 import propTypes from "prop-types";
 import { Form, Button, Segment, Grid, GridRow, GridColumn,Image } from "semantic-ui-react";
 import InlineError from "../message/InlineError";
-import {Link} from 'react-router-dom'
 
 class BookForm extends React.Component {
   state = {
@@ -127,7 +126,7 @@ this.setState({ index: newIndex, data:{...this.state.data, cover:covers[newIndex
 <Image size="small" src={data.cover}/>
 {this.state.covers.length>1 && <a role="button"
 tabIndex={0}
-onClick={this.changeCover} as={Link} >Another Cover
+onClick={this.changeCover} >Another Cover
 </a>
  }
 </GridColumn>
