@@ -1,5 +1,6 @@
 import {USER_LOGGED_IN, USER_LOGGED_OUT} from "../types/types";
 import api from '../api/api'
+import SetauhtorizationHeader from "../utils/setAuthoriztionHeader"
 
 
 export const userLoggedIn =(user)=> ({
@@ -15,6 +16,7 @@ export const userLoggedOut =()=> ({
 export const login = credentials => (dispatch) => api.user.login(credentials).then(user =>
 {
 localStorage.booksJWT = user.token;
+SetauhtorizationHeader(user.token);
 
     dispatch(userLoggedIn(user))
 });
@@ -22,6 +24,7 @@ localStorage.booksJWT = user.token;
 export const logout = () => (dispatch) =>
 {
     localStorage.removeItem("booksJWT");
+    SetauhtorizationHeader();
 
         dispatch(userLoggedOut())
     };
