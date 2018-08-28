@@ -11,6 +11,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './components/Reducer/rootReducer'
 import{userLoggedIn} from './components/actions/auth'
+import SetauthoriationHeader from './components/utils/setAuthoriztionHeader'
 
 const store = createStore(
 rootReducer,
@@ -24,6 +25,7 @@ const user = {
     email:payload.email,
     confirmed:payload.confirmed
 };
+SetauthoriationHeader(localStorage.booksJWT);
 store.dispatch(userLoggedIn(user));
 
 }
